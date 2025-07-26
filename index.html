@@ -7,6 +7,7 @@
     
     <!-- Page Title -->
     <title>TOO EC Sports Club</title>
+    <!-- Make sure the path to your favicon is correct -->
     <link rel="icon" href="images/v1438_46.png" type="image/png">
     
     <!-- Main Stylesheet for layout, colors, and typography -->
@@ -17,11 +18,6 @@
 
         /* Importing custom fonts from Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Passero+One&family=Sansita+Swashed:wght@700&family=Lemon&family=Condiment&family=Overlock+SC&family=Rajdhani&family=Racing+Sans+One&family=Raleway:wght@300;400;700&family=Anton&display=swap');
-
-        /* * Note on custom fonts:
-         * 'Avengeance Heroic Avenger', 'Niagara Solid', and 'Juice ITC' are custom fonts not available on Google Fonts.
-         * We are using web-safe fallbacks ('Anton', 'Passero One', etc.) that capture a similar style.
-        */
 
         /* Defining CSS variables (custom properties) for a consistent theme */
         :root {
@@ -37,7 +33,7 @@
             --accent-green: #2DCC70;
 
             /* Font Families */
-            --font-display: 'Anton', sans-serif; /* Fallback for Avengeance */
+            --font-display: 'Anton', sans-serif; 
             --font-heading: 'Passero One', sans-serif;
             --font-subheading: 'Racing Sans One', sans-serif;
             --font-player-name: 'Sansita Swashed', cursive;
@@ -51,15 +47,12 @@
         /* ==========================================================================
            2. GENERAL RESETS & BODY STYLING
            ========================================================================== */
-
-        /* Universal box-sizing and reset for all elements */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        /* Base styles for the entire page */
         body {
             background-color: var(--primary-bg);
             color: var(--text-light);
@@ -68,7 +61,6 @@
             overflow-x: hidden; /* Prevents horizontal scroll on the body */
         }
 
-        /* Main container for centering content */
         .container {
             width: 90%;
             max-width: 1440px;
@@ -76,12 +68,10 @@
             padding: 40px 0;
         }
 
-        /* Basic reset for headings */
         h1, h2, h3 {
             font-weight: normal;
         }
 
-        /* Responsive images */
         img {
             max-width: 100%;
             height: auto;
@@ -101,6 +91,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative; 
         }
 
         .logo img {
@@ -123,6 +114,20 @@
 
         .main-nav a:hover {
             color: var(--accent-blue);
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            z-index: 1001; 
+        }
+
+        .menu-toggle .bar {
+            width: 30px;
+            height: 3px;
+            background-color: var(--text-dark);
+            margin: 6px 0;
+            transition: 0.4s;
         }
 
         /* -------------------- HERO SECTION -------------------- */
@@ -150,25 +155,23 @@
         /* -------------------- TEAM SECTION -------------------- */
         .team-section .player-gallery {
             display: flex;
-            overflow-x: auto; /* Enables horizontal scrolling */
-            padding-bottom: 20px; /* Space for scrollbar */
+            overflow-x: auto; 
+            padding-bottom: 20px; 
             gap: 30px;
-            cursor: grab; /* Indicates the element can be dragged */
-            user-select: none; /* Prevents text selection during drag */
+            cursor: grab; 
+            user-select: none; 
         }
 
-        /* Style for when the gallery is being actively dragged */
         .player-gallery.active {
             cursor: grabbing;
             cursor: -webkit-grabbing;
         }
 
-        /* Hide scrollbar for a cleaner look */
         .player-gallery::-webkit-scrollbar { display: none; }
         .player-gallery { -ms-overflow-style: none; scrollbar-width: none; }
 
         .player-card {
-            flex: 0 0 280px; /* Prevents shrinking, sets a fixed width */
+            flex: 0 0 280px; 
             height: 506px;
             padding: 15px;
             text-align: center;
@@ -177,7 +180,7 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            overflow: hidden; /* Keep blurred edges contained */
+            overflow: hidden; 
         }
         
         .player-card .player-no {
@@ -236,7 +239,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             justify-items: center;
-            align-items: start; /* Align items to the top of the grid cell */
+            align-items: start; 
         }
 
         .achievements-grid > .achievement-card:nth-child(2) {
@@ -249,7 +252,7 @@
             display: flex;
             justify-content: center;
             gap: 120px;
-            margin-top: 100px; /* Increased spacing */
+            margin-top: 100px; 
         }
         
         .bottom-row .achievement-card {
@@ -289,7 +292,7 @@
         }
 
         .achievement-card .achievements-list li {
-            font-family: 'Juice ITC', sans-serif; /* Fallback font */
+            font-family: 'Juice ITC', sans-serif; 
             font-size: 2rem;
             color: var(--text-light);
             margin-bottom: 5px;
@@ -304,9 +307,7 @@
             z-index: 5;
         }
 
-        /* ==========================================================================
-           UPCOMING EVENTS SECTION (STYLES REWRITTEN FOR STABILITY)
-           ========================================================================== */
+        /* -------------------- UPCOMING EVENTS SECTION -------------------- */
         .upcoming-events {
             padding: 150px 0;
             margin-top: 100px;
@@ -317,7 +318,7 @@
             position: relative;
             max-width: 1200px;
             margin: auto;
-            transform: rotate(-5deg); /* Rotates the entire block */
+            transform: rotate(-5deg); 
         }
 
         .events-header-background {
@@ -333,16 +334,12 @@
             position: relative;
         }
         
-        /* Container for the "UPCOMING EVENTS" titles.
-         * Giving it an explicit height is crucial to prevent the large "EVENTS" font
-         * from pushing other elements around and causing overlap. */
         .events-title-group {
             position: relative;
             flex-grow: 1;
             height: 130px; 
         }
 
-        /* The "UPCOMING" text. Positioned absolutely within its parent group. */
         .events-header .title-light {
             font-family: var(--font-subheading);
             font-weight: normal;
@@ -353,10 +350,9 @@
             position: absolute;
             left: 0;
             top: 10px; 
-            z-index: 2; /* Ensures it sits on top of "EVENTS" */
+            z-index: 2;
         }
 
-        /* The "EVENTS" text. Positioned absolutely to allow precise placement. */
         .events-header .title {
             font-family: var(--font-display);
             font-size: 7rem;
@@ -367,7 +363,7 @@
             left: 125px; 
             bottom: 0px; 
             z-index: 1;
-            letter-spacing: 5px; /* CORRECTED: Added letter-spacing as requested */
+            letter-spacing: 5px;
         }
         
         .events-header .year-box {
@@ -410,11 +406,10 @@
         .event-item .details {
             font-family: var(--font-display);
             position: relative;
-            padding-bottom: 15px; /* Space for the line */
+            padding-bottom: 15px; 
             flex-grow: 1;
         }
         
-        /* The colored connecting line */
         .event-item .details::after {
             content: '';
             position: absolute;
@@ -438,49 +433,38 @@
             font-weight: 700;
         }
         
-        /* Staggered alignment for event items */
         .event-item:nth-child(odd) .details { text-align: left; }
         .event-item:nth-child(odd) .details::after { left: 0; }
 
-        .event-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
+        .event-item:nth-child(even) { flex-direction: row-reverse; }
         .event-item:nth-child(even) .details { text-align: right; }
         .event-item:nth-child(even) .details::after { right: 0; }
         
-        /* Assigning colors to each date box, title, and line */
-        .event-item:nth-child(1) .date-box { background-color: var(--accent-red); }
+        .event-item:nth-child(1) .date-box, .event-item:nth-child(1) .details::after { background-color: var(--accent-red); }
         .event-item:nth-child(1) .details .title { color: var(--accent-red); }
-        .event-item:nth-child(1) .details::after { background-color: var(--accent-red); }
 
-        .event-item:nth-child(2) .date-box { background-color: var(--accent-blue); }
+        .event-item:nth-child(2) .date-box, .event-item:nth-child(2) .details::after { background-color: var(--accent-blue); }
         .event-item:nth-child(2) .details .title { color: var(--accent-blue); }
-        .event-item:nth-child(2) .details::after { background-color: var(--accent-blue); }
 
-        .event-item:nth-child(3) .date-box { background-color: var(--accent-purple); }
+        .event-item:nth-child(3) .date-box, .event-item:nth-child(3) .details::after { background-color: var(--accent-purple); }
         .event-item:nth-child(3) .details .title { color: var(--accent-purple); }
-        .event-item:nth-child(3) .details::after { background-color: var(--accent-purple); }
 
-        .event-item:nth-child(4) .date-box { background-color: var(--accent-green); }
+        .event-item:nth-child(4) .date-box, .event-item:nth-child(4) .details::after { background-color: var(--accent-green); }
         .event-item:nth-child(4) .details .title { color: var(--accent-green); }
-        .event-item:nth-child(4) .details::after { background-color: var(--accent-green); }
 
         .events-footer-strip {
             background-color: var(--darker-yellow);
             height: 80px;
             position: absolute;
-            left: -50%; /* Extend far to the left */
-            right: -50%; /* Extend far to the right */
-            bottom: -250px; /* Position below the content */
+            left: -50%; 
+            right: -50%; 
+            bottom: -250px; 
             z-index: -1;
         }
-        /* ==========================================================================
-           END OF UPDATED EVENTS SECTION
-           ========================================================================== */
-
+        
         /* -------------------- NEWS SECTION -------------------- */
         .news-section {
-            margin-top: 150px; /* Add space after events section */
+            margin-top: 150px;
         }
         .news-grid {
             display: grid;
@@ -512,8 +496,6 @@
             margin: 0 auto;
             overflow: hidden;
             white-space: nowrap;
-            box-sizing: border-box;
-            padding: 10px 0;
         }
 
         .marquee-text {
@@ -600,6 +582,7 @@
         
         /* -------------------- HERO BACKGROUND -------------------- */
         .hero {
+            /* Make sure the path to your image is correct */
             background: url('images/v1476_3.png') no-repeat center center;
             background-size: cover;
             min-height: 600px;
@@ -613,25 +596,23 @@
         .player-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Make sure the path to your image is correct */
             background: url('images/v1438_106.png') no-repeat;
             background-size: 100% 100%;
-            filter: blur(2px); /* Reduced the blur effect */
-            z-index: -1; /* Place the blurred outline behind the card content */
-            transform: scale(1.05); /* Scale up slightly to avoid clipped edges from blur */
+            filter: blur(2px); 
+            z-index: -1; 
+            transform: scale(1.05); 
         }
         
         .player-card .player-image {
-            width: 90%; /* Fit image inside the card's padding */
+            width: 90%; 
             height: 380px;
             object-fit: cover;
             border-radius: 10px;
             margin-top: 25px;
             margin-bottom: 15px;
-            pointer-events: none; /* Prevents dragging the image instead of the gallery */
+            pointer-events: none; 
         }
 
         /* -------------------- HOMEGROUND BACKGROUND -------------------- */
@@ -640,6 +621,7 @@
             border-radius: 14px;
             height: 600px;
             width: 100%;
+            /* Make sure the path to your image is correct */
             background: url('images/v1480_9.png') no-repeat center center;
             background-size: cover;
         }
@@ -671,6 +653,214 @@
             width: auto;
         }
     </style>
+
+    <!-- ==========================================================================
+       5. RESPONSIVE STYLES
+       ========================================================================== -->
+    <style>
+        /* Styles for tablets and smaller desktops */
+        @media (max-width: 1024px) {
+            /* --- NAVIGATION --- */
+            .menu-toggle {
+                display: block; 
+            }
+
+            .main-nav {
+                display: none; 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-yellow);
+                border-bottom-left-radius: 25px;
+                border-bottom-right-radius: 25px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                z-index: 1000;
+            }
+
+            .main-nav.mobile-nav-open {
+                display: block; 
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+            }
+
+            .main-nav li {
+                margin: 10px 0;
+            }
+
+            .main-nav a {
+                font-size: 1.5rem;
+            }
+
+            /* --- GENERAL LAYOUT & FONTS --- */
+            .hero-text {
+                font-size: 4rem;
+                text-align: center;
+                padding: 0 5%;
+            }
+
+            .hero {
+                justify-content: center;
+                min-height: 400px;
+            }
+
+            .section-title {
+                font-size: 4rem;
+                text-align: center;
+            }
+
+            /* --- ACHIEVEMENTS --- */
+            .achievements-grid {
+                grid-template-columns: 1fr 1fr; 
+            }
+
+            .achievements-grid > .achievement-card:nth-child(2) {
+                top: 0; 
+            }
+
+            .achievements-grid .bottom-row {
+                grid-column: 1 / -1;
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+                margin-top: 40px;
+            }
+
+            .bottom-row .achievement-card {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .its-too-easy-img {
+                width: 250px;
+            }
+
+            /* --- EVENTS --- */
+            .events-container {
+                transform: rotate(0); 
+            }
+
+            .events-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .events-header .title {
+                position: static;
+            }
+            .events-header .title-light {
+                position: static;
+                text-align: center;
+            }
+            .events-title-group {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* --- NEWS --- */
+            .news-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            /* --- FOOTER --- */
+            .footer-content, .footer-links {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .footer-social {
+                justify-content: center;
+            }
+        }
+
+        /* Styles for mobile phones */
+        @media (max-width: 767px) {
+            .container {
+                width: 95%;
+                padding: 20px 0;
+            }
+            
+            /* --- TYPOGRAPHY --- */
+            .hero-text {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            /* --- JERSEY --- */
+            .jersey-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+                padding: 20px;
+            }
+            .jersey-container img {
+                width: 80%;
+            }
+
+            /* --- ACHIEVEMENTS --- */
+            .achievements-grid {
+                grid-template-columns: 1fr; 
+                gap: 60px;
+            }
+            .achievement-card .name-plate {
+                font-size: 2rem;
+            }
+            .its-too-easy-img {
+                display: none; 
+            }
+
+            /* --- EVENTS --- */
+            .events-header-background {
+                padding: 20px;
+            }
+            .events-header .title-light {
+                font-size: 2.5rem;
+            }
+            .events-header .title {
+                font-size: 4rem;
+            }
+            .events-header .year-box {
+                font-size: 4rem;
+            }
+            .event-item {
+                flex-direction: column !important; 
+                text-align: center !important;
+            }
+            .event-item .details {
+                text-align: center !important;
+            }
+            .event-item .details::after {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80%; 
+            }
+            .events-list {
+                padding: 0;
+            }
+
+            /* --- NEWS --- */
+            .news-grid {
+                grid-template-columns: 1fr; 
+                gap: 20px;
+            }
+
+            /* --- MARQUEE --- */
+            .marquee-container {
+                max-width: 80%;
+            }
+            .marquee-text {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -678,12 +868,16 @@
        PAGE HEADER
        ========================================================================== -->
     <header class="main-header">
-        <!-- Site Logo -->
         <div class="logo">
+            <!-- Make sure the path to your image is correct -->
             <img src="images/v1438_46.png" alt="TOO EC Logo">
         </div>
-        <!-- Main Navigation Menu -->
-        <nav class="main-nav">
+        <div class="menu-toggle" id="mobile-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <nav class="main-nav" id="main-nav">
             <ul>
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">JERSEYS</a></li>
@@ -699,7 +893,6 @@
        MAIN CONTENT AREA
        ========================================================================== -->
     <main>
-        <!-- HERO SECTION: Main visual and tagline -->
         <section class="hero">
             <h1 class="hero-text">
                 THE CHASE BEGINS:<br>
@@ -708,11 +901,10 @@
             </h1>
         </section>
 
-        <!-- TEAM SECTION: Horizontally scrolling gallery of players -->
         <section class="team-section container">
             <h2 class="section-title">The Team..</h2>
             <div class="player-gallery">
-                <!-- Player Card: Zayed Zubair (Captain) -->
+                <!-- NOTE: For these images to display, your 'images' folder must be in the same directory as this HTML file. -->
                 <div class="player-card">
                     <img src="images/v1438_77.png" alt="Player Zayed Zubair" class="player-image">
                     <div class="player-no">33</div>
@@ -720,7 +912,6 @@
                     <h3 class="player-name">Zayed Zubair</h3>
                     <span class="player-tag">Cricket</span>
                 </div>
-                <!-- Player Card: Rizzwan (Captain) -->
                 <div class="player-card">
                     <img src="images/v1438_86.png" alt="Player Rizzwan" class="player-image">
                     <div class="player-no">100</div>
@@ -728,112 +919,96 @@
                     <h3 class="player-name">Rizzwan</h3>
                     <span class="player-tag">Football</span>
                 </div>
-                <!-- Player Card: Sarang Ullas -->
                 <div class="player-card">
                     <img src="images/v1438_98.png" alt="Player Sarang Ullas" class="player-image">
                     <div class="player-no">7</div>
                     <h3 class="player-name">Sarang Ullas</h3>
                     <span class="player-tag">Cricket</span>
                 </div>
-                <!-- Player Card: Vedas -->
                 <div class="player-card">
                     <img src="images/v1438_67.png" alt="Player Vedas" class="player-image">
                     <div class="player-no">10</div>
                     <h3 class="player-name">Vedas</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
-                <!-- Player Card: Shivanandh -->
                 <div class="player-card">
                     <img src="images/v1438_119.png" alt="Player Shivanandh" class="player-image">
                     <div class="player-no">16</div>
                     <h3 class="player-name">Shivanandh</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
-                <!-- Player Card: Maanas -->
                 <div class="player-card">
                     <img src="images/v1438_213.png" alt="Player Maanas" class="player-image">
                     <div class="player-no">17</div>
                     <h3 class="player-name">Maanas</h3>
                     <span class="player-tag">Cricket</span>
                 </div>
-                <!-- Player Card: Rithin raj -->
                 <div class="player-card">
                     <img src="images/v1438_148.png" alt="Player Rithin raj" class="player-image">
                     <div class="player-no">3</div>
                     <h3 class="player-name">Rithin raj</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
-                <!-- Player Card: Pranav -->
                 <div class="player-card">
                     <img src="images/v1438_135.png" alt="Player Pranav" class="player-image">
                     <div class="player-no">11</div>
                     <h3 class="player-name">Pranav</h3>
                     <span class="player-tag">Football</span>
                 </div>
-                <!-- Player Card: Rishikesh -->
                 <div class="player-card">
                     <img src="images/v1438_157.png" alt="Player Rishikesh" class="player-image">
                     <div class="player-no">9</div>
                     <h3 class="player-name">Rishikesh</h3>
                     <span class="player-tag">Football</span>
                 </div>
-                <!-- Player Card: Shanu -->
                 <div class="player-card">
                     <img src="images/v1438_164.png" alt="Player Shanu" class="player-image">
                     <div class="player-no">8</div>
                     <h3 class="player-name">Shanu</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
-                <!-- Player Card: Yadhu -->
                 <div class="player-card">
                     <img src="images/v1438_108.png" alt="Player Yadhu" class="player-image">
                     <div class="player-no">18</div>
                     <h3 class="player-name">Yadhu</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
-                <!-- Player Card: Sanju -->
                 <div class="player-card">
                     <img src="images/v1438_185.png" alt="Player Sanju" class="player-image">
                     <div class="player-no">77</div>
                     <h3 class="player-name">Sanju</h3>
                     <span class="player-tag">Football</span>
                 </div>
-                <!-- Player Card: Navjyot -->
                 <div class="player-card">
                     <img src="images/v1438_128.png" alt="Player Navjyot" class="player-image">
                     <div class="player-no">37</div>
                     <h3 class="player-name">Navjyot</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
-                <!-- Player Card: Samrudh -->
                 <div class="player-card">
                     <img src="images/v1438_204.png" alt="Player Samrudh" class="player-image">
                     <div class="player-no">25</div>
                     <h3 class="player-name">Samrudh</h3>
                     <span class="player-tag">Football</span>
                 </div>
-                <!-- Player Card: Satheerth -->
                 <div class="player-card">
                     <img src="images/v1438_192.png" alt="Player Satheerth" class="player-image">
                     <div class="player-no">15</div>
                     <h3 class="player-name">Satheerth</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
-                <!-- Player Card: Nived -->
                 <div class="player-card">
                     <img src="images/v1438_176.png" alt="Player Nived" class="player-image">
                     <div class="player-no">18</div>
                     <h3 class="player-name">Nived</h3>
                     <span class="player-tag">Manager</span>
                 </div>
-                <!-- Player Card: Umer -->
                 <div class="player-card">
                     <img src="images/v1438_222.png" alt="Player Umer" class="player-image">
                     <div class="player-no">21</div>
                     <h3 class="player-name">Umer</h3>
                     <span class="player-tag">Football</span>
                 </div>
-                <!-- Player Card: Yadhu krishna M -->
                 <div class="player-card">
                     <img src="images/v1438_235.png" alt="Player Yadhu krishna M" class="player-image">
                     <div class="player-no">49</div>
@@ -843,13 +1018,11 @@
             </div>
         </section>
 
-        <!-- HOMEGROUND SECTION: Displays the team's home ground -->
         <section class="homeground-section container">
             <h2 class="section-title">Homeground</h2>
             <div class="homeground-image"></div>
         </section>
 
-        <!-- OUR JERSEY SECTION: Displays the team jerseys -->
         <section class="jersey-section container">
             <h2 class="section-title blue">Our Jersey</h2>
             <div class="jersey-container">
@@ -858,11 +1031,9 @@
             </div>
         </section>
 
-        <!-- ACHIEVEMENTS SECTION: Grid of team achievements -->
         <section class="achievements-section container">
             <h2 class="section-title" style="text-align: center;">Achievements</h2>
             <div class="achievements-grid">
-                <!-- Row 1 -->
                 <div class="achievement-card">
                     <div class="photo-frame"><img src="images/v1527_9.png" alt="Vedas Achievement"></div>
                     <div class="name-plate">Vedas</div>
@@ -886,7 +1057,6 @@
                         <li>F-zone cricket 2024</li>
                     </ul>
                 </div>
-                <!-- Row 2 -->
                 <div class="bottom-row">
                     <div class="achievement-card">
                         <div class="photo-frame"><img src="images/v1527_14.png" alt="Navajyoth Achievement"></div>
@@ -907,7 +1077,6 @@
             <img src="images/v1486_29.png" alt="It's too easy" class="its-too-easy-img">
         </section>
 
-        <!-- UPCOMING EVENTS SECTION (REVISED): Tilted design showcasing future events -->
         <section class="upcoming-events">
             <div class="events-container">
                 <div class="events-header-background">
@@ -920,7 +1089,6 @@
                     </div>
                 </div>
                 <div class="events-list">
-                    <!-- Event 1 -->
                     <div class="event-item">
                         <div class="date-box">AUGUST<br>2025</div>
                         <div class="details">
@@ -928,7 +1096,6 @@
                             <p class="subtitle">FOOTBALL</p>
                         </div>
                     </div>
-                    <!-- Event 2 -->
                     <div class="event-item">
                         <div class="date-box">SEPTEMBER<br>2025</div>
                         <div class="details">
@@ -936,7 +1103,6 @@
                             <p class="subtitle">CRICKET</p>
                         </div>
                     </div>
-                    <!-- Event 3 -->
                     <div class="event-item">
                         <div class="date-box">OCTOBER<br>2025</div>
                         <div class="details">
@@ -944,7 +1110,6 @@
                             <p class="subtitle">FOOTBALL</p>
                         </div>
                     </div>
-                    <!-- Event 4 -->
                     <div class="event-item">
                         <div class="date-box">NOVEMBER<br>2025</div>
                         <div class="details">
@@ -957,36 +1122,29 @@
             </div>
         </section>
 
-        <!-- NEWS SECTION: Grid of news articles -->
         <section class="news-section container">
             <h2 class="section-title">News</h2>
             <div class="news-grid">
-                <!-- News Card 1 -->
                 <div class="news-card">
                     <img src="images/v1493_2.png" alt="News Image 1">
                     <p class="caption">TOO EC UNVEILS JERSEYS FOR 2025-26 SESON</p>
                 </div>
-                <!-- News Card 2 -->
                 <div class="news-card">
                     <img src="images/v1527_36.png" alt="News Image 2">
                     <p class="caption">TOO EC PLAYERS AT ECL 2024</p>
                 </div>
-                <!-- News Card 3 -->
                 <div class="news-card">
                     <img src="images/v1527_39.png" alt="News Image 3">
                     <p class="caption">VEDAS RECIEVES M.O.M MEDAL FROM ANAS SIR</p>
                 </div>
-                <!-- News Card 4 -->
                 <div class="news-card">
                     <img src="images/v1527_47.png" alt="News Image 4">
                     <p class="caption">TOO EC PLAYERS AT EPL 2025 OPENING CEROMONY</p>
                 </div>
-                <!-- News Card 5 -->
                 <div class="news-card">
                     <img src="images/v1527_62.png" alt="News Image 5">
                     <p class="caption">ZAYED, VEDAS BECOMES CHAMPIONS ON F-ZONE DEBUT</p>
                 </div>
-                <!-- News Card 6 -->
                 <div class="news-card">
                     <img src="images/v1528_65.png" alt="News Image 6">
                     <p class="caption">PLAYERS AT ECL 2024</p>
@@ -994,14 +1152,12 @@
             </div>
         </section>
 
-        <!-- STRONGER TOGETHER SECTION -->
         <section class="stronger-together-section">
             <div class="marquee-container">
                 <h3 class="marquee-text">Stronger Together</h3>
             </div>
         </section>
 
-        <!-- MAIN PARTNERS SECTION: Logos of sponsors -->
         <section class="partners-section container">
             <h2 class="section-title" style="font-size: 3rem;">MAIN PARTNERS</h2>
             <div class="partners-logos">
@@ -1018,7 +1174,6 @@
        ========================================================================== -->
     <footer class="main-footer">
         <div class="footer-content">
-            <!-- Footer navigation links -->
             <div class="footer-links">
                 <ul>
                     <li><a href="#">Privacy policy</a></li>
@@ -1032,14 +1187,12 @@
                     <li><a href="#">Cookie settings</a></li>
                 </ul>
             </div>
-            <!-- Social media icons -->
             <div class="footer-social">
                 <a href="#"><img src="images/v194_54.png" alt="Social Media 1"></a>
                 <a href="#"><img src="images/v194_55.png" alt="Social Media 2"></a>
                 <a href="#"><img src="images/v194_56.png" alt="Social Media 3"></a>
             </div>
         </div>
-        <!-- Copyright information -->
         <div class="footer-copyright">
             <p>Copyright 2024 The Too ec sports Club Limited. All rights reserved. Match Statistics supplied by Cricheroes Sports Data Limited. Reproduced under licence from Football DataCo Limited. All rights reserved.</p>
         </div>
@@ -1080,6 +1233,16 @@
               const x = e.pageX - slider.offsetLeft;
               const walk = (x - startX) * 2;
               slider.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        // SCRIPT FOR MOBILE NAVIGATION TOGGLE
+        const menuButton = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('main-nav');
+
+        if (menuButton && navMenu) {
+            menuButton.addEventListener('click', () => {
+                navMenu.classList.toggle('mobile-nav-open');
             });
         }
     </script>
