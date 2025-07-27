@@ -10,22 +10,13 @@
     <!-- Make sure the path to your favicon is correct -->
     <link rel="icon" href="images/v1438_46.png" type="image/png">
     
-    <!-- 
-      OPTIMIZATION NOTE: 
-      All CSS styles have been consolidated into a single <style> block.
-      This helps the browser process styles more efficiently.
-    -->
+    <!-- Main Stylesheet for layout, colors, and typography -->
     <style>
         /* ==========================================================================
            1. FONT IMPORTS & CSS VARIABLES
            ========================================================================== */
 
-        /* OPTIMIZATION NOTE: 
-          The 'display=swap' parameter in the URL below is crucial for performance. 
-          It allows the browser to display text in a fallback font immediately, 
-          rather than waiting for the custom fonts to download, which prevents
-          a blank screen and makes the site feel faster.
-        */
+        /* Importing custom fonts from Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Passero+One&family=Sansita+Swashed:wght@700&family=Lemon&family=Condiment&family=Overlock+SC&family=Rajdhani&family=Racing+Sans+One&family=Raleway:wght@300;400;700&family=Anton&display=swap');
 
         /* Defining CSS variables (custom properties) for a consistent theme */
@@ -452,17 +443,22 @@
         .event-item:nth-child(even) .details { text-align: right; }
         .event-item:nth-child(even) .details::after { right: 0; }
         
-        .event-item:nth-child(1) .date-box, .event-item:nth-child(1) .details::after { background-color: var(--accent-red); }
+        /* FIX: Simplified the following CSS rules to prevent potential parsing errors */
+        .event-item:nth-child(1) .date-box { background-color: var(--accent-red); }
         .event-item:nth-child(1) .details .title { color: var(--accent-red); }
+        .event-item:nth-child(1) .details::after { background-color: var(--accent-red); }
 
-        .event-item:nth-child(2) .date-box, .event-item:nth-child(2) .details::after { background-color: var(--accent-blue); }
+        .event-item:nth-child(2) .date-box { background-color: var(--accent-blue); }
         .event-item:nth-child(2) .details .title { color: var(--accent-blue); }
+        .event-item:nth-child(2) .details::after { background-color: var(--accent-blue); }
 
-        .event-item:nth-child(3) .date-box, .event-item:nth-child(3) .details::after { background-color: var(--accent-purple); }
+        .event-item:nth-child(3) .date-box { background-color: var(--accent-purple); }
         .event-item:nth-child(3) .details .title { color: var(--accent-purple); }
+        .event-item:nth-child(3) .details::after { background-color: var(--accent-purple); }
 
-        .event-item:nth-child(4) .date-box, .event-item:nth-child(4) .details::after { background-color: var(--accent-green); }
+        .event-item:nth-child(4) .date-box { background-color: var(--accent-green); }
         .event-item:nth-child(4) .details .title { color: var(--accent-green); }
+        .event-item:nth-child(4) .details::after { background-color: var(--accent-green); }
 
         .events-footer-strip {
             background-color: var(--darker-yellow);
@@ -584,16 +580,17 @@
             font-weight: 300;
             font-size: 0.9rem;
         }
-        
+    </style>
+
+    <!-- Stylesheet dedicated to images and backgrounds -->
+    <style>
         /* ==========================================================================
            4. IMAGE & BACKGROUND STYLES
            ========================================================================== */
         
         /* -------------------- HERO BACKGROUND -------------------- */
         .hero {
-            /* IMPORTANT: This background image is critical for the first impression. 
-              Make sure it is highly compressed to load quickly.
-            */
+            /* Make sure the path to your image is correct */
             background: url('images/v1476_3.png') no-repeat center center;
             background-size: cover;
             min-height: 600px;
@@ -608,6 +605,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
+            /* Make sure the path to your image is correct */
             background: url('images/v1438_106.png') no-repeat;
             background-size: 100% 100%;
             filter: blur(2px); 
@@ -631,6 +629,7 @@
             border-radius: 14px;
             height: 600px;
             width: 100%;
+            /* Make sure the path to your image is correct */
             background: url('images/v1480_9.png') no-repeat center center;
             background-size: cover;
         }
@@ -661,11 +660,12 @@
             max-height: 120px;
             width: auto;
         }
+    </style>
 
-        /* ==========================================================================
-           5. RESPONSIVE STYLES (UPDATED)
-           ========================================================================== */
-        
+    <!-- ==========================================================================
+       5. RESPONSIVE STYLES (UPDATED)
+       ========================================================================== -->
+    <style>
         /* Styles for tablets and smaller desktops */
         @media (max-width: 1024px) {
             /* --- NAVIGATION --- */
@@ -750,6 +750,7 @@
             }
 
             /* --- EVENTS --- */
+            /* FIX: Straighten the events section and prevent overflow */
             .upcoming-events {
                 padding-left: 15px;
                 padding-right: 15px;
@@ -759,6 +760,7 @@
                 width: 100%;
             }
             .events-footer-strip {
+                /* FIX: Contain the footer strip */
                 left: 0;
                 right: 0;
                 width: 100%;
@@ -855,6 +857,7 @@
             .events-header .year-box {
                 font-size: 4rem;
             }
+            /* FIX: Force column layout and proper centering for all event items */
             .event-item {
                 flex-direction: column !important; 
                 text-align: center !important;
@@ -894,6 +897,7 @@
        ========================================================================== -->
     <header class="main-header">
         <div class="logo">
+            <!-- Make sure the path to your image is correct -->
             <img src="images/v1438_46.png" alt="TOO EC Logo">
         </div>
         <div class="menu-toggle" id="mobile-menu">
@@ -928,113 +932,113 @@
         <section class="team-section container">
             <h2 class="section-title">The Team..</h2>
             <div class="player-gallery">
-                <!-- PERFORMANCE: Added loading="lazy" to defer image loading until needed -->
+                <!-- NOTE: For these images to display, your 'images' folder must be in the same directory as this HTML file. -->
                 <div class="player-card">
-                    <img src="images/v1438_77.png" alt="Player Zayed Zubair" class="player-image" loading="lazy">
+                    <img src="images/v1438_77.png" alt="Player Zayed Zubair" class="player-image">
                     <div class="player-no">33</div>
                     <div class="captain-tag">CAPTAIN</div>
                     <h3 class="player-name">Zayed Zubair</h3>
                     <span class="player-tag">Cricket</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_86.png" alt="Player Rizzwan" class="player-image" loading="lazy">
+                    <img src="images/v1438_86.png" alt="Player Rizzwan" class="player-image">
                     <div class="player-no">100</div>
                     <div class="captain-tag">CAPTAIN</div>
                     <h3 class="player-name">Rizzwan</h3>
                     <span class="player-tag">Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_98.png" alt="Player Sarang Ullas" class="player-image" loading="lazy">
+                    <img src="images/v1438_98.png" alt="Player Sarang Ullas" class="player-image">
                     <div class="player-no">7</div>
                     <h3 class="player-name">Sarang Ullas</h3>
                     <span class="player-tag">Cricket</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_67.png" alt="Player Vedas" class="player-image" loading="lazy">
+                    <img src="images/v1438_67.png" alt="Player Vedas" class="player-image">
                     <div class="player-no">10</div>
                     <h3 class="player-name">Vedas</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_119.png" alt="Player Shivanandh" class="player-image" loading="lazy">
+                    <img src="images/v1438_119.png" alt="Player Shivanandh" class="player-image">
                     <div class="player-no">16</div>
                     <h3 class="player-name">Shivanandh</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_213.png" alt="Player Maanas" class="player-image" loading="lazy">
+                    <img src="images/v1438_213.png" alt="Player Maanas" class="player-image">
                     <div class="player-no">17</div>
                     <h3 class="player-name">Maanas</h3>
                     <span class="player-tag">Cricket</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_148.png" alt="Player Rithin raj" class="player-image" loading="lazy">
+                    <img src="images/v1438_148.png" alt="Player Rithin raj" class="player-image">
                     <div class="player-no">3</div>
                     <h3 class="player-name">Rithin raj</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_135.png" alt="Player Pranav" class="player-image" loading="lazy">
+                    <img src="images/v1438_135.png" alt="Player Pranav" class="player-image">
                     <div class="player-no">11</div>
                     <h3 class="player-name">Pranav</h3>
                     <span class="player-tag">Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_157.png" alt="Player Rishikesh" class="player-image" loading="lazy">
+                    <img src="images/v1438_157.png" alt="Player Rishikesh" class="player-image">
                     <div class="player-no">9</div>
                     <h3 class="player-name">Rishikesh</h3>
                     <span class="player-tag">Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_164.png" alt="Player Shanu" class="player-image" loading="lazy">
+                    <img src="images/v1438_164.png" alt="Player Shanu" class="player-image">
                     <div class="player-no">8</div>
                     <h3 class="player-name">Shanu</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_108.png" alt="Player Yadhu" class="player-image" loading="lazy">
+                    <img src="images/v1438_108.png" alt="Player Yadhu" class="player-image">
                     <div class="player-no">18</div>
                     <h3 class="player-name">Yadhu</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_185.png" alt="Player Sanju" class="player-image" loading="lazy">
+                    <img src="images/v1438_185.png" alt="Player Sanju" class="player-image">
                     <div class="player-no">77</div>
                     <h3 class="player-name">Sanju</h3>
                     <span class="player-tag">Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_128.png" alt="Player Navjyot" class="player-image" loading="lazy">
+                    <img src="images/v1438_128.png" alt="Player Navjyot" class="player-image">
                     <div class="player-no">37</div>
                     <h3 class="player-name">Navjyot</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_204.png" alt="Player Samrudh" class="player-image" loading="lazy">
+                    <img src="images/v1438_204.png" alt="Player Samrudh" class="player-image">
                     <div class="player-no">25</div>
                     <h3 class="player-name">Samrudh</h3>
                     <span class="player-tag">Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_192.png" alt="Player Satheerth" class="player-image" loading="lazy">
+                    <img src="images/v1438_192.png" alt="Player Satheerth" class="player-image">
                     <div class="player-no">15</div>
                     <h3 class="player-name">Satheerth</h3>
                     <span class="player-tag">Cricket/Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_176.png" alt="Player Nived" class="player-image" loading="lazy">
+                    <img src="images/v1438_176.png" alt="Player Nived" class="player-image">
                     <div class="player-no">18</div>
                     <h3 class="player-name">Nived</h3>
                     <span class="player-tag">Manager</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_222.png" alt="Player Umer" class="player-image" loading="lazy">
+                    <img src="images/v1438_222.png" alt="Player Umer" class="player-image">
                     <div class="player-no">21</div>
                     <h3 class="player-name">Umer</h3>
                     <span class="player-tag">Football</span>
                 </div>
                 <div class="player-card">
-                    <img src="images/v1438_235.png" alt="Player Yadhu krishna M" class="player-image" loading="lazy">
+                    <img src="images/v1438_235.png" alt="Player Yadhu krishna M" class="player-image">
                     <div class="player-no">49</div>
                     <h3 class="player-name">Yadhu krishna M</h3>
                     <span class="player-tag">Football</span>
@@ -1050,9 +1054,8 @@
         <section class="jersey-section container">
             <h2 class="section-title blue">Our Jersey</h2>
             <div class="jersey-container">
-                <!-- PERFORMANCE: Added loading="lazy" -->
-                <img src="images/v1480_15.png" alt="Home Jersey" loading="lazy">
-                <img src="images/v1487_35.png" alt="Away Jersey" loading="lazy">
+                <img src="images/v1480_15.png" alt="Home Jersey">
+                <img src="images/v1487_35.png" alt="Away Jersey">
             </div>
         </section>
 
@@ -1060,8 +1063,7 @@
             <h2 class="section-title" style="text-align: center;">Achievements</h2>
             <div class="achievements-grid">
                 <div class="achievement-card">
-                    <!-- PERFORMANCE: Added loading="lazy" -->
-                    <div class="photo-frame"><img src="images/v1527_9.png" alt="Vedas Achievement" loading="lazy"></div>
+                    <div class="photo-frame"><img src="images/v1527_9.png" alt="Vedas Achievement"></div>
                     <div class="name-plate">Vedas</div>
                     <ul class="achievements-list">
                         <li>EPL football 2024</li>
@@ -1069,14 +1071,14 @@
                     </ul>
                 </div>
                 <div class="achievement-card">
-                    <div class="photo-frame"><img src="images/v1517_6.png" alt="Vyshna Achievement" loading="lazy"></div>
+                    <div class="photo-frame"><img src="images/v1517_6.png" alt="Vyshna Achievement"></div>
                     <div class="name-plate">Vyshna</div>
                     <ul class="achievements-list">
                         <li>F-zone kho kho 2024</li>
                     </ul>
                 </div>
                 <div class="achievement-card">
-                    <div class="photo-frame"><img src="images/v1492_47.png" alt="Zayed Zubair Achievement" loading="lazy"></div>
+                    <div class="photo-frame"><img src="images/v1492_47.png" alt="Zayed Zubair Achievement"></div>
                     <div class="name-plate">Zayed Zubair</div>
                     <ul class="achievements-list">
                         <li>EPL cricket 2023</li>
@@ -1085,14 +1087,14 @@
                 </div>
                 <div class="bottom-row">
                     <div class="achievement-card">
-                        <div class="photo-frame"><img src="images/v1527_14.png" alt="Navajyoth Achievement" loading="lazy"></div>
+                        <div class="photo-frame"><img src="images/v1527_14.png" alt="Navajyoth Achievement"></div>
                         <div class="name-plate">Navajyoth</div>
                         <ul class="achievements-list">
                             <li>F-zone volleyball 2024</li>
                         </ul>
                     </div>
                     <div class="achievement-card">
-                        <div class="photo-frame"><img src="images/v1527_18.png" alt="Pavithra Achievement" loading="lazy"></div>
+                        <div class="photo-frame"><img src="images/v1527_18.png" alt="Pavithra Achievement"></div>
                         <div class="name-plate">Pavithra</div>
                         <ul class="achievements-list">
                             <li>F-zone kho kho 2024</li>
@@ -1100,7 +1102,7 @@
                     </div>
                 </div>
             </div>
-            <img src="images/v1486_29.png" alt="It's too easy" class="its-too-easy-img" loading="lazy">
+            <img src="images/v1486_29.png" alt="It's too easy" class="its-too-easy-img">
         </section>
 
         <section class="upcoming-events">
@@ -1152,27 +1154,27 @@
             <h2 class="section-title">News</h2>
             <div class="news-grid">
                 <div class="news-card">
-                    <img src="images/v1493_2.png" alt="News Image 1" loading="lazy">
+                    <img src="images/v1493_2.png" alt="News Image 1">
                     <p class="caption">TOO EC UNVEILS JERSEYS FOR 2025-26 SESON</p>
                 </div>
                 <div class="news-card">
-                    <img src="images/v1527_36.png" alt="News Image 2" loading="lazy">
+                    <img src="images/v1527_36.png" alt="News Image 2">
                     <p class="caption">TOO EC PLAYERS AT ECL 2024</p>
                 </div>
                 <div class="news-card">
-                    <img src="images/v1527_39.png" alt="News Image 3" loading="lazy">
+                    <img src="images/v1527_39.png" alt="News Image 3">
                     <p class="caption">VEDAS RECIEVES M.O.M MEDAL FROM ANAS SIR</p>
                 </div>
                 <div class="news-card">
-                    <img src="images/v1527_47.png" alt="News Image 4" loading="lazy">
+                    <img src="images/v1527_47.png" alt="News Image 4">
                     <p class="caption">TOO EC PLAYERS AT EPL 2025 OPENING CEROMONY</p>
                 </div>
                 <div class="news-card">
-                    <img src="images/v1527_62.png" alt="News Image 5" loading="lazy">
+                    <img src="images/v1527_62.png" alt="News Image 5">
                     <p class="caption">ZAYED, VEDAS BECOMES CHAMPIONS ON F-ZONE DEBUT</p>
                 </div>
                 <div class="news-card">
-                    <img src="images/v1528_65.png" alt="News Image 6" loading="lazy">
+                    <img src="images/v1528_65.png" alt="News Image 6">
                     <p class="caption">PLAYERS AT ECL 2024</p>
                 </div>
             </div>
@@ -1187,9 +1189,9 @@
         <section class="partners-section container">
             <h2 class="section-title" style="font-size: 3rem;">MAIN PARTNERS</h2>
             <div class="partners-logos">
-                <img src="images/v1545_7.png" alt="Reebok Logo" loading="lazy">
-                <img src="images/Frame 36.png" alt="Saradas Fuels Logo" loading="lazy">
-                <img src="images/v1545_12.png" alt="Kiasco Logo" loading="lazy">
+                <img src="images/v1545_7.png" alt="Reebok Logo">
+                <img src="images/Frame 36.png" alt="Saradas Fuels Logo">
+                <img src="images/v1545_12.png" alt="Kiasco Logo">
             </div>
         </section>
 
@@ -1214,9 +1216,9 @@
                 </ul>
             </div>
             <div class="footer-social">
-                <a href="#"><img src="images/v194_54.png" alt="Social Media 1" loading="lazy"></a>
-                <a href="#"><img src="images/v194_55.png" alt="Social Media 2" loading="lazy"></a>
-                <a href="#"><img src="images/v194_56.png" alt="Social Media 3" loading="lazy"></a>
+                <a href="#"><img src="images/v194_54.png" alt="Social Media 1"></a>
+                <a href="#"><img src="images/v194_55.png" alt="Social Media 2"></a>
+                <a href="#"><img src="images/v194_56.png" alt="Social Media 3"></a>
             </div>
         </div>
         <div class="footer-copyright">
@@ -1228,52 +1230,49 @@
        JAVASCRIPT
        ========================================================================== -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    
-            // SCRIPT FOR DRAG-TO-SCROLL FUNCTIONALITY ON THE PLAYER GALLERY
-            const slider = document.querySelector('.player-gallery');
-            
-            if (slider) {
-                let isDown = false;
-                let startX;
-                let scrollLeft;
-    
-                slider.addEventListener('mousedown', (e) => {
-                  isDown = true;
-                  slider.classList.add('active');
-                  startX = e.pageX - slider.offsetLeft;
-                  scrollLeft = slider.scrollLeft;
-                });
-    
-                slider.addEventListener('mouseleave', () => {
-                  isDown = false;
-                  slider.classList.remove('active');
-                });
-    
-                slider.addEventListener('mouseup', () => {
-                  isDown = false;
-                  slider.classList.remove('active');
-                });
-    
-                slider.addEventListener('mousemove', (e) => {
-                  if(!isDown) return;
-                  e.preventDefault();
-                  const x = e.pageX - slider.offsetLeft;
-                  const walk = (x - startX) * 2;
-                  slider.scrollLeft = scrollLeft - walk;
-                });
-            }
-    
-            // SCRIPT FOR MOBILE NAVIGATION TOGGLE
-            const menuButton = document.getElementById('mobile-menu');
-            const navMenu = document.getElementById('main-nav');
-    
-            if (menuButton && navMenu) {
-                menuButton.addEventListener('click', () => {
-                    navMenu.classList.toggle('mobile-nav-open');
-                });
-            }
-        });
+        // SCRIPT FOR DRAG-TO-SCROLL FUNCTIONALITY ON THE PLAYER GALLERY
+        const slider = document.querySelector('.player-gallery');
+        
+        if (slider) {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+              isDown = true;
+              slider.classList.add('active');
+              startX = e.pageX - slider.offsetLeft;
+              scrollLeft = slider.scrollLeft;
+            });
+
+            slider.addEventListener('mouseleave', () => {
+              isDown = false;
+              slider.classList.remove('active');
+            });
+
+            slider.addEventListener('mouseup', () => {
+              isDown = false;
+              slider.classList.remove('active');
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+              if(!isDown) return;
+              e.preventDefault();
+              const x = e.pageX - slider.offsetLeft;
+              const walk = (x - startX) * 2;
+              slider.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        // SCRIPT FOR MOBILE NAVIGATION TOGGLE
+        const menuButton = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('main-nav');
+
+        if (menuButton && navMenu) {
+            menuButton.addEventListener('click', () => {
+                navMenu.classList.toggle('mobile-nav-open');
+            });
+        }
     </script>
 
 </body>
