@@ -54,7 +54,7 @@
         .main-nav a { text-decoration: none; color: var(--text-dark); font-family: var(--font-subheading); font-size: 2rem; margin: 0 20px; transition: color 0.3s; }
         .menu-toggle { display: none; cursor: pointer; z-index: 1001; }
         .menu-toggle .bar { width: 30px; height: 3px; background-color: var(--text-dark); margin: 6px 0; transition: 0.4s; }
-        .hero { background-image: url('https://res.cloudinary.com/dicyfv549/image/upload/w_480,f_auto,q_auto:eco,e_blur:200/v1753626071/v1476_3_mkyuep.png'); background-size: cover; background-position: center; min-height: 600px; padding-right: 5%; display: flex; align-items: center; justify-content: flex-end; }
+        .hero { background-image: url('https://res.cloudinary.com/dicyfv549/image/upload/w_480,f_auto,q_auto:good/v1753626071/v1476_3_mkyuep.png'); background-size: cover; background-position: center; min-height: 600px; padding-right: 5%; display: flex; align-items: center; justify-content: flex-end; }
         .hero-text { font-family: var(--font-display); font-size: 6rem; color: var(--primary-yellow); text-align: right; line-height: 1.1; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
         
         @media (min-width: 481px) {
@@ -96,8 +96,9 @@
         .player-card .player-name { font-family: var(--font-player-name); font-size: 2rem; color: var(--text-light); margin-bottom: 10px; }
         .player-card .player-tag { background-color: var(--primary-yellow); color: var(--text-dark); font-family: var(--font-tag); padding: 5px 15px; border-radius: 8px; display: inline-block; }
         .player-card .captain-tag { position: absolute; top: 350px; left: 25px; background-color: var(--primary-yellow); color: var(--text-dark); font-family: var(--font-tag); padding: 5px 20px; border-radius: 8px; font-size: 1.2rem; }
-        .player-card .player-image { width: 90%; height: 380px; border-radius: 10px; margin-top: 25px; margin-bottom: 15px; overflow: hidden; }
-        .player-card .player-image img { width: 100%; height: 100%; object-fit: cover; }
+        /* FIX: Replaced fixed height with aspect-ratio to maintain shape without cropping */
+        .player-card .player-image { width: 90%; aspect-ratio: 252 / 380; border-radius: 10px; margin-top: 25px; margin-bottom: 15px; overflow: hidden; }
+        .player-card .player-image img { width: 100%; height: 100%; object-fit: contain; }
         .homeground-image { border: 5px solid var(--primary-yellow); border-radius: 14px; height: 600px; width: 100%; background: url('https://res.cloudinary.com/dicyfv549/image/upload/w_1200,f_auto,q_auto:good/v1753626072/v1480_9_jpoata.jpg') no-repeat center center; background-size: cover; }
         .jersey-container { border: 5px solid var(--primary-yellow); border-radius: 18px; padding: 40px; display: flex; justify-content: center; gap: 5%; }
         .jersey-container picture { width: 40%; max-width: 480px; }
@@ -108,8 +109,9 @@
         .bottom-row .achievement-card { width: calc(33.33% - 10px); }
         .achievement-card { text-align: center; }
         .achievement-card .photo-frame { border: 5px solid var(--accent-blue); border-radius: 7px; padding: 10px; background-color: var(--primary-bg); margin-bottom: -50px; position: relative; z-index: 1; }
-        .achievement-card .photo-frame picture { width: 100%; height: 450px; border-radius: 7px; overflow: hidden; display: block; }
-        .achievement-card .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+        /* FIX: Replaced fixed height with aspect-ratio to maintain shape without cropping */
+        .achievement-card .photo-frame picture { width: 100%; aspect-ratio: 400 / 450; border-radius: 7px; overflow: hidden; display: block; }
+        .achievement-card .photo-frame img { width: 100%; height: 100%; object-fit: contain; }
         .achievement-card .name-plate { background-color: var(--primary-yellow); color: var(--text-dark); font-family: var(--font-achievement); font-size: 2.5rem; padding: 10px 30px; border-radius: 15px; transform: rotate(-10deg); display: inline-block; position: relative; z-index: 2; }
         .achievement-card .achievements-list { list-style: none; padding-top: 20px; }
         .achievement-card .achievements-list li { font-family: 'Juice ITC', sans-serif; font-size: 2rem; color: var(--text-light); margin-bottom: 5px; }
@@ -150,8 +152,9 @@
         .news-section { margin-top: 150px; }
         .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
         .news-card { background-color: var(--primary-yellow); overflow: hidden; }
-        .news-card picture { width: 100%; height: 350px; }
-        .news-card img { width: 100%; height: 100%; object-fit: cover; }
+        /* FIX: Replaced fixed height with aspect-ratio to maintain shape without cropping */
+        .news-card picture { width: 100%; aspect-ratio: 400 / 350; }
+        .news-card img { width: 100%; height: 100%; object-fit: contain; }
         .news-card .caption { padding: 20px; color: var(--text-dark); font-family: var(--font-news); font-size: 1.5rem; text-align: center; }
         .stronger-together-section { padding: 40px 0; text-align: center; }
         .marquee-container { max-width: 40%; margin: 0 auto; overflow: hidden; white-space: nowrap; }
