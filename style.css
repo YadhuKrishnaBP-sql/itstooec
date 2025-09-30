@@ -1,0 +1,841 @@
+/* CSS Variables */
+:root {
+    --primary-bg: #24004B;
+    --primary-yellow: #FDBC4B;
+    --darker-yellow: #F9B918;
+    --text-light: #FFFFFF;
+    --text-dark: #24004B;
+    --accent-blue: #3598DB;
+    --accent-red: #F13B3B;
+    --accent-purple: #B466D4;
+    --accent-green: #2DCC70;
+    --font-display: 'Anton', sans-serif; 
+    --font-heading: 'Passero One', sans-serif;
+    --font-subheading: 'Racing Sans One', sans-serif;
+    --font-player-name: 'Sansita Swashed', cursive;
+    --font-tag: 'Lemon', cursive;
+    --font-body: 'Raleway', sans-serif;
+    --font-news: 'Overlock SC', cursive;
+    --font-achievement: 'Condiment', cursive;
+    --font-stronger-together: 'Lemon', cursive;
+}
+
+/* General Styles */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+html { 
+    scroll-behavior: smooth; 
+}
+
+html, body { 
+    overflow-x: hidden; 
+}
+
+body { 
+    background-color: var(--primary-bg); 
+    color: var(--text-light); 
+    font-family: var(--font-body); 
+    font-size: 16px; 
+}
+
+.container { 
+    width: 90%; 
+    max-width: 1440px; 
+    margin: 0 auto; 
+    padding: 40px 0; 
+}
+
+h1, h2, h3 { 
+    font-weight: normal; 
+}
+
+img, picture { 
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+}
+
+/* Header and Navigation */
+.main-header { 
+    background-color: var(--primary-yellow); 
+    padding: 10px 2%; 
+    margin: 30px 1%; 
+    border-radius: 25px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: relative; 
+}
+
+.logo img { 
+    width: 100px; 
+}
+
+.main-nav ul { 
+    list-style: none; 
+    display: flex; 
+}
+
+.main-nav a { 
+    text-decoration: none; 
+    color: var(--text-dark); 
+    font-family: var(--font-subheading); 
+    font-size: 2rem; 
+    margin: 0 20px; 
+    transition: color 0.3s; 
+}
+
+.main-nav a:hover { 
+    color: var(--accent-blue); 
+}
+
+.menu-toggle { 
+    display: none; 
+    cursor: pointer; 
+    z-index: 1001; 
+}
+
+.menu-toggle .bar { 
+    width: 30px; 
+    height: 3px; 
+    background-color: var(--text-dark); 
+    margin: 6px 0; 
+    transition: 0.4s; 
+}
+
+/* Hero Section */
+.hero { 
+    background-image: url('https://res.cloudinary.com/dicyfv549/image/upload/w_480,f_auto,q_auto:good/v1753626071/v1476_3_mkyuep.png'); 
+    background-size: cover; 
+    background-position: center; 
+    min-height: 600px; 
+    padding-right: 5%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-end; 
+}
+
+.hero-text { 
+    font-family: var(--font-display); 
+    font-size: 6rem; 
+    color: var(--primary-yellow); 
+    text-align: right; 
+    line-height: 1.1; 
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5); 
+}
+
+/* Section Titles */
+.section-title { 
+    font-family: var(--font-heading); 
+    font-size: 6rem; 
+    color: var(--primary-yellow); 
+    margin-bottom: 40px; 
+}
+
+.section-title.blue { 
+    color: var(--accent-blue); 
+}
+
+/* Team Section */
+.team-section .player-gallery { 
+    display: flex; 
+    overflow-x: auto; 
+    padding-bottom: 20px; 
+    gap: 30px; 
+    cursor: grab; 
+    user-select: none; 
+}
+
+.player-gallery.active { 
+    cursor: grabbing; 
+    cursor: -webkit-grabbing; 
+}
+
+.player-gallery::-webkit-scrollbar { 
+    display: none; 
+}
+
+.player-gallery { 
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+.player-card { 
+    flex: 0 0 280px; 
+    height: 506px; 
+    padding: 15px; 
+    text-align: center; 
+    position: relative; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start; 
+    align-items: center; 
+    overflow: hidden; 
+}
+
+.player-card::before { 
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background: url('https://res.cloudinary.com/dicyfv549/image/upload/w_280,f_auto,q_auto:good/v1753626066/v1438_106_cxhnsb.png') no-repeat; 
+    background-size: 100% 100%; 
+    filter: blur(2px); 
+    z-index: -1; 
+    transform: scale(1.05); 
+}
+
+.player-card .player-no { 
+    position: absolute; 
+    top: 20px; 
+    left: 25px; 
+    font-family: var(--font-heading); 
+    font-size: 4rem; 
+    color: var(--primary-yellow); 
+}
+
+.player-card .player-name { 
+    font-family: var(--font-player-name); 
+    font-size: 2rem; 
+    color: var(--text-light); 
+    margin-bottom: 10px; 
+}
+
+.player-card .player-tag { 
+    background-color: var(--primary-yellow); 
+    color: var(--text-dark); 
+    font-family: var(--font-tag); 
+    padding: 5px 15px; 
+    border-radius: 8px; 
+    display: inline-block; 
+}
+
+.player-card .captain-tag { 
+    position: absolute; 
+    top: 350px; 
+    left: 25px; 
+    background-color: var(--primary-yellow); 
+    color: var(--text-dark); 
+    font-family: var(--font-tag); 
+    padding: 5px 20px; 
+    border-radius: 8px; 
+    font-size: 1.2rem; 
+}
+
+.player-card .player-image { 
+    width: 90%; 
+    aspect-ratio: 252 / 380; 
+    border-radius: 10px; 
+    margin-top: 25px; 
+    margin-bottom: 15px; 
+    overflow: hidden; 
+}
+
+.player-card .player-image img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+}
+
+/* Homeground Section */
+.homeground-image { 
+    border: 5px solid var(--primary-yellow); 
+    border-radius: 14px; 
+    height: 600px; 
+    width: 100%; 
+    background: url('https://res.cloudinary.com/dicyfv549/image/upload/w_1200,f_auto,q_auto:good/v1753626072/v1480_9_jpoata.jpg') no-repeat center center; 
+    background-size: cover; 
+}
+
+/* Jersey Section */
+.jersey-container { 
+    border: 5px solid var(--primary-yellow); 
+    border-radius: 18px; 
+    padding: 40px; 
+    display: flex; 
+    justify-content: center; 
+    gap: 5%; 
+}
+
+.jersey-container picture { 
+    width: 40%; 
+    max-width: 480px; 
+}
+
+/* Achievements Section */
+.achievements-section { 
+    position: relative; 
+}
+
+.achievements-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    justify-items: center; 
+    align-items: start; 
+}
+
+.achievements-grid > .achievement-card:nth-child(2) { 
+    position: relative; 
+    top: -40px; 
+}
+
+.achievements-grid .bottom-row { 
+    grid-column: 1 / -1; 
+    display: flex; 
+    justify-content: center; 
+    gap: 120px; 
+    margin-top: 100px; 
+}
+
+.bottom-row .achievement-card { 
+    width: calc(33.33% - 10px); 
+}
+
+.achievement-card { 
+    text-align: center; 
+}
+
+.achievement-card .photo-frame { 
+    border: 5px solid var(--accent-blue); 
+    border-radius: 7px; 
+    padding: 10px; 
+    background-color: var(--primary-bg); 
+    margin-bottom: -50px; 
+    position: relative; 
+    z-index: 1; 
+}
+
+.achievement-card .photo-frame picture { 
+    width: 100%; 
+    aspect-ratio: 400 / 450; 
+    border-radius: 7px; 
+    overflow: hidden; 
+    display: block; 
+}
+
+.achievement-card .photo-frame img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+}
+
+.achievement-card .name-plate { 
+    background-color: var(--primary-yellow); 
+    color: var(--text-dark); 
+    font-family: var(--font-achievement); 
+    font-size: 2.5rem; 
+    padding: 10px 30px; 
+    border-radius: 15px; 
+    transform: rotate(-10deg); 
+    display: inline-block; 
+    position: relative; 
+    z-index: 2; 
+}
+
+.achievement-card .achievements-list { 
+    list-style: none; 
+    padding-top: 20px; 
+}
+
+.achievement-card .achievements-list li { 
+    font-family: 'Juice ITC', sans-serif; 
+    font-size: 2rem; 
+    color: var(--text-light); 
+    margin-bottom: 5px; 
+}
+
+.its-too-easy-img { 
+    position: absolute; 
+    width: 370px; 
+    top: 55%; 
+    left: 50%; 
+    transform: translate(-50%, -50%) rotate(-10deg); 
+    z-index: 5; 
+}
+
+/* Upcoming Events Section */
+.upcoming-events { 
+    padding: 150px 0; 
+    margin-top: 100px; 
+    position: relative; 
+}
+
+.events-container { 
+    position: relative; 
+    max-width: 1200px; 
+    margin: auto; 
+    transform: rotate(-5deg); 
+}
+
+.events-header-background { 
+    background-color: var(--darker-yellow); 
+    padding: 20px 40px; 
+    border-radius: 12px; 
+}
+
+.events-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: relative; 
+}
+
+.events-title-group { 
+    position: relative; 
+    flex-grow: 1; 
+    height: 130px; 
+}
+
+.events-header .title-light { 
+    font-family: var(--font-subheading); 
+    font-weight: normal; 
+    font-size: 3.5rem; 
+    color: var(--text-light); 
+    -webkit-text-stroke: 1.5px var(--text-dark); 
+    text-stroke: 1.5px var(--text-dark); 
+    position: absolute; 
+    left: 0; 
+    top: 10px; 
+    z-index: 2; 
+}
+
+.events-header .title { 
+    font-family: var(--font-display); 
+    font-size: 7rem; 
+    line-height: 1; 
+    color: var(--text-dark); 
+    font-style: italic; 
+    position: absolute; 
+    left: 125px; 
+    bottom: 0px; 
+    z-index: 1; 
+    letter-spacing: 5px; 
+}
+
+.events-header .year-box { 
+    background-color: var(--primary-bg); 
+    color: var(--text-light); 
+    font-family: var(--font-display); 
+    font-size: 6rem; 
+    padding: 5px 25px; 
+    line-height: 1; 
+    flex-shrink: 0; 
+}
+
+.events-list { 
+    margin-top: 80px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 40px; 
+    padding: 0 40px; 
+}
+
+.event-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 30px; 
+    width: 100%; 
+}
+
+.event-item .date-box { 
+    color: var(--text-light); 
+    font-family: var(--font-display); 
+    font-size: 1.8rem; 
+    line-height: 1.1; 
+    text-align: center; 
+    padding: 15px; 
+    border-radius: 12px; 
+    flex-shrink: 0; 
+    width: 150px; 
+}
+
+.event-item .details { 
+    font-family: var(--font-display); 
+    position: relative; 
+    padding-bottom: 15px; 
+    flex-grow: 1; 
+}
+
+.event-item .details::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: 0; 
+    height: 4px; 
+    width: 100%; 
+}
+
+.event-item .details .title { 
+    font-size: 2.5rem; 
+    line-height: 1.1; 
+    font-style: italic; 
+    margin-bottom: 5px; 
+}
+
+.event-item .details .subtitle { 
+    font-size: 1.5rem; 
+    color: var(--text-light); 
+    font-style: normal; 
+    font-family: var(--font-body); 
+    font-weight: 700; 
+}
+
+.event-item:nth-child(odd) .details { text-align: left; }
+.event-item:nth-child(odd) .details::after { left: 0; }
+.event-item:nth-child(even) { flex-direction: row-reverse; }
+.event-item:nth-child(even) .details { text-align: right; }
+.event-item:nth-child(even) .details::after { right: 0; }
+
+.event-item:nth-child(1) .date-box { background-color: var(--accent-red); }
+.event-item:nth-child(1) .details .title { color: var(--accent-red); }
+.event-item:nth-child(1) .details::after { background-color: var(--accent-red); }
+
+.event-item:nth-child(2) .date-box { background-color: var(--accent-blue); }
+.event-item:nth-child(2) .details .title { color: var(--accent-blue); }
+.event-item:nth-child(2) .details::after { background-color: var(--accent-blue); }
+
+.event-item:nth-child(3) .date-box { background-color: var(--accent-purple); }
+.event-item:nth-child(3) .details .title { color: var(--accent-purple); }
+.event-item:nth-child(3) .details::after { background-color: var(--accent-purple); }
+
+.event-item:nth-child(4) .date-box { background-color: var(--accent-green); }
+.event-item:nth-child(4) .details .title { color: var(--accent-green); }
+.event-item:nth-child(4) .details::after { background-color: var(--accent-green); }
+
+.events-footer-strip { 
+    background-color: var(--darker-yellow); 
+    height: 80px; 
+    position: absolute; 
+    left: -50%; 
+    right: -50%; 
+    bottom: -250px; 
+    z-index: -1; 
+}
+
+/* News Section */
+.news-section { 
+    margin-top: 150px; 
+}
+
+.news-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    gap: 40px; 
+}
+
+.news-card { 
+    background-color: var(--primary-yellow); 
+    overflow: hidden; 
+}
+
+.news-card picture { 
+    width: 100%; 
+    aspect-ratio: 400 / 350; 
+}
+
+.news-card img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+}
+
+.news-card .caption { 
+    padding: 20px; 
+    color: var(--text-dark); 
+    font-family: var(--font-news); 
+    font-size: 1.5rem; 
+    text-align: center; 
+}
+
+/* Stronger Together Section */
+.stronger-together-section { 
+    padding: 40px 0; 
+    text-align: center; 
+}
+
+.marquee-container { 
+    max-width: 40%; 
+    margin: 0 auto; 
+    overflow: hidden; 
+    white-space: nowrap; 
+}
+
+.marquee-text { 
+    font-family: var(--font-stronger-together); 
+    font-size: 4rem; 
+    color: var(--primary-yellow); 
+    display: inline-block; 
+    padding-left: 100%; 
+    animation: marquee 12s linear infinite; 
+}
+
+@keyframes marquee { 
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(-100%); } 
+}
+
+/* Partners Section */
+.partners-section { 
+    text-align: center; 
+}
+
+.partners-logos { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 50px; 
+    flex-wrap: wrap; 
+    margin-top: 40px; 
+}
+
+.partners-logos img { 
+    max-height: 120px; 
+    width: auto; 
+}
+
+/* Footer */
+.main-footer { 
+    background-color: var(--primary-yellow); 
+    color: var(--text-dark); 
+    padding: 40px 5%; 
+    margin-top: 60px; 
+}
+
+.footer-content { 
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap; 
+    gap: 30px; 
+    padding-bottom: 30px; 
+    border-bottom: 2px solid var(--text-dark); 
+}
+
+.footer-links { 
+    display: flex; 
+    gap: 80px; 
+}
+
+.footer-links ul { 
+    list-style: none; 
+}
+
+.footer-links a { 
+    text-decoration: none; 
+    color: var(--text-dark); 
+    font-family: var(--font-body); 
+    font-size: 1.1rem; 
+    line-height: 2; 
+}
+
+.footer-social img { 
+    width: 50px; 
+    margin-left: 15px; 
+}
+
+.footer-copyright { 
+    text-align: center; 
+    padding-top: 20px; 
+    font-family: var(--font-body); 
+    font-weight: 300; 
+    font-size: 0.9rem; 
+}
+
+
+/* Media Queries for Responsiveness */
+
+@media (min-width: 481px) {
+    .hero { 
+        background-image: url('https://res.cloudinary.com/dicyfv549/image/upload/w_1024,f_auto,q_auto:good/v1753626071/v1476_3_mkyuep.png'); 
+    }
+}
+@media (min-width: 1025px) {
+    .hero { 
+        background-image: url('https://res.cloudinary.com/dicyfv549/image/upload/w_1920,f_auto,q_auto:good/v1753626071/v1476_3_mkyuep.png'); 
+    }
+}
+@media (max-width: 1024px) {
+    .menu-toggle { 
+        display: block; 
+    }
+    .main-nav { 
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        left: 0; 
+        width: 100%; 
+        background-color: var(--primary-yellow); 
+        border-bottom-left-radius: 25px; 
+        border-bottom-right-radius: 25px; 
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+        z-index: 1000; 
+    }
+    .main-nav.mobile-nav-open { 
+        display: block; 
+    }
+    .main-nav ul { 
+        flex-direction: column; 
+        align-items: center; 
+        padding: 20px 0; 
+    }
+    .main-nav li { 
+        margin: 10px 0; 
+    }
+    .main-nav a { 
+        font-size: 1.5rem; 
+    }
+    .hero { 
+        justify-content: center; 
+        min-height: 400px; 
+        padding-right: 0; 
+        text-align: center; 
+    }
+    .hero-text { 
+        font-size: 4rem; 
+        text-align: center; 
+        padding: 0 5%; 
+    }
+    .section-title { 
+        font-size: 4rem; 
+        text-align: center; 
+    }
+    .achievements-grid { 
+        grid-template-columns: 1fr 1fr; 
+    }
+    .achievements-grid > .achievement-card:nth-child(2) { 
+        top: 0; 
+    }
+    .achievements-grid .bottom-row { 
+        grid-column: 1 / -1; 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 40px; 
+        margin-top: 40px; 
+    }
+    .bottom-row .achievement-card { 
+        width: 100%; 
+        max-width: 400px; 
+    }
+    .its-too-easy-img { 
+        width: 250px; 
+    }
+    .upcoming-events { 
+        padding-left: 15px; 
+        padding-right: 15px; 
+    }
+    .events-container { 
+        transform: rotate(0); 
+        width: 100%; 
+    }
+    .events-footer-strip { 
+        left: 0; 
+        right: 0; 
+        width: 100%; 
+        bottom: -200px; 
+    }
+    .events-header { 
+        flex-direction: column; 
+        gap: 20px; 
+    }
+    .events-header .title { 
+        position: static; 
+    }
+    .events-header .title-light { 
+        position: static; 
+        text-align: center; 
+    }
+    .events-title-group { 
+        height: auto; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .news-grid { 
+        grid-template-columns: 1fr 1fr; 
+    }
+    .footer-content, .footer-links { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 20px; 
+    }
+    .footer-social { 
+        justify-content: center; 
+    }
+}
+@media (max-width: 767px) {
+    .hero-text { 
+        font-size: 2.5rem; 
+    }
+    .container { 
+        width: 100%; 
+        padding-left: 15px; 
+        padding-right: 15px; 
+        padding-top: 20px; 
+        padding-bottom: 20px; 
+    }
+    .section-title { 
+        font-size: 2.5rem; 
+    }
+    .jersey-container { 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 30px; 
+        padding: 20px; 
+    }
+    .jersey-container picture { 
+        width: 80%; 
+    }
+    .achievements-grid { 
+        grid-template-columns: 1fr; 
+        gap: 60px; 
+    }
+    .achievement-card .name-plate { 
+        font-size: 2rem; 
+    }
+    .its-too-easy-img { 
+        display: none; 
+    }
+    .events-header-background { 
+        padding: 20px; 
+    }
+    .events-header .title-light { 
+        font-size: 2.5rem; 
+    }
+    .events-header .title { 
+        font-size: 4rem; 
+        letter-spacing: 2px; 
+    }
+    .events-header .year-box { 
+        font-size: 4rem; 
+    }
+    .event-item { 
+        flex-direction: column !important; 
+        text-align: center !important; 
+    }
+    .event-item .details { 
+        text-align: center !important; 
+    }
+    .event-item .details::after { 
+        left: 50%; 
+        transform: translateX(-50%); 
+        width: 80%; 
+    }
+    .events-list { 
+        padding: 0; 
+    }
+    .news-grid { 
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+    }
+    .marquee-container { 
+        max-width: 80%; 
+    }
+    .marquee-text { 
+        font-size: 2rem; 
+    }
+}

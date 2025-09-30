@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matches - ItsTooEC-Sports</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .matches-container {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+            min-height: 60vh;
+        }
+
+        .matches-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .match-card {
+            background-color: #3a1078;
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid #5a3d99;
+            text-align: left;
+        }
+        
+        .match-card h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--primary-yellow);
+            margin: 0 0 15px 0;
+        }
+        
+        .match-card p {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        .match-card p strong {
+            color: var(--accent-blue);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="https://res.cloudinary.com/dicyfv549/image/upload/w_100,f_auto,q_auto:good/v1753626069/v1438_46_bhsvbp.png" alt="TOO EC Logo">
+            </a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <nav class="main-nav" id="main-nav">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#jerseys">JERSEYS</a></li>
+                <li><a href="index.html#players">PLAYERS</a></li>
+                <li><a href="#">GALLERY</a></li>
+                <li><a href="index.html#events">EVENTS</a></li>
+                <li><a href="matches.html">MATCHES</a></li>
+                <li><a href="#">INFO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="matches-container">
+            <div id="matches-list" class="matches-list">
+                <!-- Match cards will be inserted here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Terms and conditions</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                    <li><a href="#">Cookie settings</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="#"><img src="https://res.cloudinary.com/dicyfv549/image/upload/w_50,f_auto,q_auto:good/v1753626095/v194_54_t9hr8h.png" alt="Social Media 1"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dicyfv549/image/upload/w_50,f_auto,q_auto:good/v1753626095/v194_55_xmovmz.png" alt="Social Media 2"></a>
+                <a href="#"><img src="https://res.cloudinary.com/dicyfv549/image/upload/w_50,f_auto,q_auto:good/v1753626095/v194_56_k1smzp.png" alt="Social Media 3"></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>Copyright 2024 The Too ec sports Club Limited. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="matches.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
+
